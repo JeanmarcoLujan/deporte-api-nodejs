@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoute');
+const footballRoutes = require('./routes/footballRoute');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const dotenv = require("dotenv");
@@ -24,6 +25,7 @@ app.use(cors());
 
 // Routes
 app.use('/api', userRoutes);
+app.use('/api', footballRoutes);
 
 // Start the server
 app.listen(port, () => {
