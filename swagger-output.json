@@ -5,10 +5,10 @@
     "title": "REST API",
     "description": ""
   },
-  "host": "https://creepy-pear-sunbonnet.cyclic.cloud",
+  "host": "creepy-pear-sunbonnet.cyclic.cloud/",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/api/campo": {
