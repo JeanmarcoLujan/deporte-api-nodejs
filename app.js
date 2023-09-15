@@ -5,6 +5,10 @@ const footballRoutes = require('./routes/footballRoute');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const dotenv = require("dotenv");
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./swagger'); // Import your Swagger configuration
+const swaggerDocument = require('./swagger-output.json');
+
 
 dotenv.config();
 
@@ -24,6 +28,7 @@ app.use(express.json());
 app.use(cors());
 
 // Routes
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/api', userRoutes);
 app.use('/api', footballRoutes);
 
