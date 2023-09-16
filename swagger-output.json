@@ -236,19 +236,19 @@
                   "example": "any"
                 },
                 "reservationStartDate": {
-                  "example": "any"
+                  "example": "date"
                 },
                 "reservationEndDate": {
-                  "example": "any"
+                  "example": "date"
                 },
                 "reservationStatus": {
-                  "example": "any"
+                  "example": "string"
                 },
                 "reservationCliente": {
-                  "example": "any"
+                  "example": "string"
                 },
                 "totalReservationFee": {
-                  "example": "any"
+                  "example": "number"
                 }
               }
             }
@@ -311,22 +311,22 @@
               "type": "object",
               "properties": {
                 "firstName": {
-                  "example": "any"
+                  "example": "string"
                 },
                 "lastName": {
-                  "example": "any"
+                  "example": "string"
                 },
                 "email": {
-                  "example": "any"
+                  "example": "string"
                 },
                 "password": {
-                  "example": "any"
+                  "example": "string"
                 },
                 "phone": {
-                  "example": "any"
+                  "example": "string"
                 },
                 "address": {
-                  "example": "any"
+                  "example": "string"
                 }
               }
             }
@@ -381,22 +381,22 @@
               "type": "object",
               "properties": {
                 "firstName": {
-                  "example": "any"
+                  "example": "string"
                 },
                 "lastName": {
-                  "example": "any"
+                  "example": "string"
                 },
                 "email": {
-                  "example": "any"
+                  "example": "string"
                 },
                 "password": {
-                  "example": "any"
+                  "example": "string"
                 },
                 "phone": {
-                  "example": "any"
+                  "example": "string"
                 },
                 "address": {
-                  "example": "any"
+                  "example": "string"
                 }
               }
             }

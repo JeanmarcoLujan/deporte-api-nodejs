@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 // Definir un esquema de usuario
 const userSchema = new mongoose.Schema({
@@ -10,6 +11,18 @@ const userSchema = new mongoose.Schema({
     address: String
     // Otros campos relevantes del usuario
   });
+
+  userSchema.pre("save", async function (next) {
+    const user = this;
+    if (!user.isModified("password")) return next();
+    const salt = await bcrypt.genSalt(10);
+    user.password = await bcrypt.hash(user.password, salt);
+    next();
+  });
+  
+  userSchema.methods.comparePassword = function (password) {
+    return bcrypt.compare(password, this.password);
+  };
   
   // Definir un modelo de usuario
   const User = mongoose.model("User", userSchema);

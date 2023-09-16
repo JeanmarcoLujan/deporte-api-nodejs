@@ -37,11 +37,11 @@ exports.createUser = async (req, res) => {
       phone,
       address
     });
-    console.log(user);
+    
     const newUser = await user.save();
     res.status(201).json(newUser);
   } catch (err) {
-    res.status(400).json({ message: err.message + "234234" });
+    res.status(400).json({ message: err.message  });
   }
 };
 
@@ -80,21 +80,24 @@ exports.deleteUser = async (req, res) => {
 exports.loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
+
     const user = await User.findOne({ email });
+
     if (!user) {
       return res.status(401).json({ message: "Authentication failed" });
     }
 
     const isPasswordMatch = await user.comparePassword(password);
+
     if (!isPasswordMatch) {
-      return res.status(401).json({ message: "Authentication failed" });
+      return res.status(401).json({ token:"", message: "Authentication failed", auth: false });
     }
 
     const token = jwt.sign({ userId: user._id }, "your_secret_key", {
       expiresIn: "1h",
     });
-    res.json({ token });
+    res.json({ token, message:"Succesfully", auth: true });
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({ token: "", message: err.message, auth: false });
   }
 };
