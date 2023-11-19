@@ -5,10 +5,10 @@
     "title": "REST API",
     "description": ""
   },
-  "host": "creepy-pear-sunbonnet.cyclic.cloud/",
+  "host": "localhost:3001",
   "basePath": "/",
   "schemes": [
-    "https"
+    "http"
   ],
   "paths": {
     "/api/campo": {
@@ -156,26 +156,17 @@
             "schema": {
               "type": "object",
               "properties": {
-                "user": {
-                  "example": "any"
-                },
-                "footballField": {
-                  "example": "any"
-                },
-                "reservationStartDate": {
-                  "example": "date"
-                },
-                "reservationEndDate": {
-                  "example": "date"
-                },
-                "reservationStatus": {
+                "title": {
                   "example": "string"
                 },
-                "reservationCliente": {
-                  "example": "string"
+                "start": {
+                  "example": "date"
                 },
-                "totalReservationFee": {
-                  "example": "number"
+                "end": {
+                  "example": "date"
+                },
+                "client": {
+                  "example": "string"
                 }
               }
             }
@@ -229,26 +220,17 @@
             "schema": {
               "type": "object",
               "properties": {
-                "user": {
-                  "example": "any"
-                },
-                "footballField": {
-                  "example": "any"
-                },
-                "reservationStartDate": {
-                  "example": "date"
-                },
-                "reservationEndDate": {
-                  "example": "date"
-                },
-                "reservationStatus": {
+                "title": {
                   "example": "string"
                 },
-                "reservationCliente": {
-                  "example": "string"
+                "start": {
+                  "example": "date"
                 },
-                "totalReservationFee": {
-                  "example": "number"
+                "end": {
+                  "example": "date"
+                },
+                "client": {
+                  "example": "string"
                 }
               }
             }

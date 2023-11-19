@@ -39,6 +39,17 @@ const userSchema = new mongoose.Schema({
   
   // Definir un esquema de reserva
   const reservationSchema = new mongoose.Schema({
+    title: String,
+    start: Date ,
+    end: Date,
+    client : String
+    // Otros campos relevantes de la reserva
+  });
+  
+
+
+  /*
+  const reservationSchema = new mongoose.Schema({
     user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
@@ -54,7 +65,8 @@ const userSchema = new mongoose.Schema({
     totalReservationFee: Number
     // Otros campos relevantes de la reserva
   });
-  
+
+  */
   // Definir un modelo de reserva
   const Reservation = mongoose.model('Reservation', reservationSchema);
   

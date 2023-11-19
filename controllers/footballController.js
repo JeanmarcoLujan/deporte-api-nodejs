@@ -5,7 +5,12 @@ const {FootballField } = require("../models/basedatos");
 exports.getAllFoot = async (req, res) => {
   try {
     const foots = await FootballField.find();
-    res.json(foots);
+
+    const footsResult = foots.map(doc => {
+      return { id: doc._id, ...doc.toObject() };
+    });
+    res.json(footsResult);
+    //res.json(foots);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -17,7 +22,7 @@ exports.createFoot = async (req, res) => {
     const { fieldName, fieldDescription } = req.body;
     const foot = new FootballField({ fieldName, fieldDescription });
     const newFoot = await foot.save();
-    res.status(201).json(newFoot);
+    res.status(201).json({ id: newFoot._id, ...newFoot.toObject() });
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
@@ -41,7 +46,7 @@ exports.getFootById = async (req, res) => {
     if (!foot) {
       return res.status(404).json({ message: "Campo not found" });
     }
-    res.json(foot);
+    res.json({ id: foot._id, ...foot.toObject() });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -64,7 +69,8 @@ exports.updateFoot = async (req, res) => {
     if (!updatedFoot) {
       return res.status(404).json({ message: "Campo not found" });
     }
-    res.json(updatedFoot);
+    res.json({ id: updatedFoot._id, ...updatedFoot.toObject() });
+    //res.json(updatedFoot);
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
